@@ -24,7 +24,7 @@ const fruit = new Fruit({
   rating : 10,
   review : "Sweet delicious and perfect."
 })
-//fruit.save();
+fruit.save();
 
 //Data validation example
 
@@ -44,12 +44,12 @@ const papaya = new Fruit({
 papaya.save()
 
 const People = mongoose.model("People",peopleSchema)
-// const people = new People({
-//   name : "Amy",
-//   age : 37,
-//   favouritefruit : pineapple
-// });
-//people.save()
+const people = new People({
+  name : "Amy",
+  age : 37,
+  favouritefruit : pineapple
+});
+people.save()
 
 //How to insert many fruits in a row
 const kiwi = new Fruit({
@@ -63,29 +63,29 @@ const  orange = new Fruit({
   review : "Sour but good"
 })
 
-/*Fruit.insertMany([kiwi,orange],function(err){
+Fruit.insertMany([kiwi,orange],function(err){
   if(err){
     console.log( "Something went wrong "+ err);
   }else{
     console.log("New fruitS added to the fruits database inside fruits collection");
   }
-})*/
+})
 //UPDATE A DOCUMENT FROM A MODEL
-// Fruit.updateOne({_id : "5eff7a56d7bab32cdc824c02"},{name : "Peach"},function(err){
-//   {
-//     if(err){console.log(err);}
-//     else{console.log("Succesfully added a name");}
-//   }
-// })
-// //DELETE
-// Fruit.deleteOne({name : "Peach"},function(err){
-//   if(err){console.log(err);}
-//   else{console.log("Peach deleted");}
-// })
-// People.deleteMany({name:"John"},function(err){
-//   if(err){console.log(err);}
-//   else{console.log("John deleted");}
-// })
+Fruit.updateOne({_id : "5eff7a56d7bab32cdc824c02"},{name : "Peach"},function(err){
+  {
+    if(err){console.log(err);}
+    else{console.log("Succesfully added a name");}
+  }
+})
+//DELETE
+Fruit.deleteOne({name : "Peach"},function(err){
+  if(err){console.log(err);}
+  else{console.log("Peach deleted");}
+})
+People.deleteMany({name:"John"},function(err){
+  if(err){console.log(err);}
+  else{console.log("John deleted");}
+})
 
 People.updateOne({name : "John"},{favouritefruit : papaya},function(err){
   if(err){console.log(err);}
@@ -93,7 +93,7 @@ People.updateOne({name : "John"},{favouritefruit : papaya},function(err){
     console.log("John now has a fav fruit.");
   }
 })
-//READ TO FIND THE ARRAY
+//READ: TO USE THE ARRAY FROM THE DB
 Fruit.find(function(e,fruits){
   if(e){
     console.log(e);
