@@ -1,0 +1,2 @@
+#ignoring node modules just use npm install mongodb
+/node_modules/
